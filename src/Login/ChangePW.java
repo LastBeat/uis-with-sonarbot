@@ -21,22 +21,22 @@ public class ChangePW extends JFrame {
 	private static JPasswordField passNow;
 	private static JPasswordField passNew;
 	private static JPasswordField passCheck;
-	public static final String pattern = "^[A-Za-z[0-9]]{10,20}$"; // ¿µ¹®, ¼ıÀÚ
+	public static final String pattern = "^[A-Za-z[0-9]]{10,20}$"; // ì˜ë¬¸, ìˆ«ì
 
 	/**
 	 * Create the frame.
 	 */
 	public ChangePW() {
-		setTitle("ºñ¹Ğ¹øÈ£ º¯°æ");	// È­¸é Title ÁöÁ¤
-		setResizable(false);	// È­¸é Å©±â Á¶Á¤ ºÒ°¡
+		setTitle("ë¹„ë°€ë²ˆí˜¸ ë³€ê²½");	// í™”ë©´ Title ì§€ì •
+		setResizable(false);	// í™”ë©´ í¬ê¸° ì¡°ì • ë¶ˆê°€
 		setBounds(100, 100, 435, 285);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-				JLabel label = new JLabel("* 7ÀÚ¸®ÀÇ ¿µ¹®ÀÚ¿Í ¼ıÀÚ¸¸ ÀÔ·Â");
-				label.setFont(new Font("¸¼Àº °íµñ Semilight", Font.PLAIN, 9));
+				JLabel label = new JLabel("* 7ìë¦¬ì˜ ì˜ë¬¸ìì™€ ìˆ«ìë§Œ ì…ë ¥");
+				label.setFont(new Font("ë§‘ì€ ê³ ë”• Semilight", Font.PLAIN, 9));
 				label.setForeground(new Color(0, 0, 205));
 				label.setBounds(180, 133, 183, 21);
 				getContentPane().add(label);
@@ -48,60 +48,60 @@ public class ChangePW extends JFrame {
 		pnChPw.setBackground(Color.WHITE);
 		pnChPw.setLayout(null);
 
-		// ·Î±×ÀÎ ºñ¹Ğ¹øÈ£ º¯°æ Á¦¸ñ
-		JLabel ChangePW = new JLabel("ºñ¹Ğ¹øÈ£ º¯°æ");
-		ChangePW.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 22));
+		// ë¡œê·¸ì¸ ë¹„ë°€ë²ˆí˜¸ ë³€ê²½ ì œëª©
+		JLabel ChangePW = new JLabel("ë¹„ë°€ë²ˆí˜¸ ë³€ê²½");
+		ChangePW.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 22));
 		ChangePW.setForeground(new Color(0, 0, 128));
 		ChangePW.setBounds(145, 15, 145, 38);
 		pnChPw.add(ChangePW);
 
-		// ±âÁ¸ ºñ¹Ğ¹øÈ£
-		JLabel PWNow = new JLabel("±âÁ¸ ºñ¹Ğ¹øÈ£");
-		PWNow.setFont(new Font("ÇÑÄÄ °íµñ", Font.BOLD, 13));
+		// ê¸°ì¡´ ë¹„ë°€ë²ˆí˜¸
+		JLabel PWNow = new JLabel("ê¸°ì¡´ ë¹„ë°€ë²ˆí˜¸");
+		PWNow.setFont(new Font("í•œì»´ ê³ ë”•", Font.BOLD, 13));
 		PWNow.setForeground(Color.DARK_GRAY);
 		PWNow.setBounds(92, 84, 119, 21);
 		pnChPw.add(PWNow);
 
-		// ½Å±Ô ºñ¹Ğ¹øÈ£
-		JLabel PWNew = new JLabel("½Å±Ô ºñ¹Ğ¹øÈ£");
+		// ì‹ ê·œ ë¹„ë°€ë²ˆí˜¸
+		JLabel PWNew = new JLabel("ì‹ ê·œ ë¹„ë°€ë²ˆí˜¸");
 		PWNew.setForeground(Color.DARK_GRAY);
-		PWNew.setFont(new Font("ÇÑÄÄ °íµñ", Font.BOLD, 13));
+		PWNew.setFont(new Font("í•œì»´ ê³ ë”•", Font.BOLD, 13));
 		PWNew.setBounds(92, 116, 119, 21);
 		pnChPw.add(PWNew);
 
-		// ºñ¹Ğ¹øÈ£ È®ÀÎ
-		JLabel PWCheck = new JLabel("ºñ¹Ğ¹øÈ£ È®ÀÎ");
-		PWCheck.setFont(new Font("ÇÑÄÄ °íµñ", Font.BOLD, 13));
+		// ë¹„ë°€ë²ˆí˜¸ í™•ì¸
+		JLabel PWCheck = new JLabel("ë¹„ë°€ë²ˆí˜¸ í™•ì¸");
+		PWCheck.setFont(new Font("í•œì»´ ê³ ë”•", Font.BOLD, 13));
 		PWCheck.setForeground(Color.DARK_GRAY);
 		PWCheck.setBounds(92, 152, 119, 21);
 		pnChPw.add(PWCheck);
 
-		// È®ÀÎ¹öÆ°
-		JButton btnOK = new JButton("º¯°æÇÏ±â");
+		// í™•ì¸ë²„íŠ¼
+		JButton btnOK = new JButton("ë³€ê²½í•˜ê¸°");
 		btnOK.setBounds(174, 188, 82, 21);
 		pnChPw.add(btnOK);
 		btnOK.setContentAreaFilled(false); // 1
-		btnOK.setOpaque(true); // 2 //1,2¸¦ ¼±¾ğÇØÁà¾ß º¯°æÇÏ±â ¹öÆ°ÀÇ ¹è°æ»ö
+		btnOK.setOpaque(true); // 2 //1,2ë¥¼ ì„ ì–¸í•´ì¤˜ì•¼ ë³€ê²½í•˜ê¸° ë²„íŠ¼ì˜ ë°°ê²½ìƒ‰
 		btnOK.setBackground(new Color(0, 0, 139));
 		btnOK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				CheckPW();
 			}
 		});
-		btnOK.setFont(new Font("ÇÑÄÄ °íµñ", Font.BOLD, 12));
+		btnOK.setFont(new Font("í•œì»´ ê³ ë”•", Font.BOLD, 12));
 		btnOK.setForeground(Color.WHITE);
 
-		// ±âÁ¸ ºñ¹Ğ¹øÈ£ ÀÔ·ÂÄ­
+		// ê¸°ì¡´ ë¹„ë°€ë²ˆí˜¸ ì…ë ¥ì¹¸
 		passNow = new JPasswordField();
 		passNow.setBounds(180, 84, 145, 18);
 		pnChPw.add(passNow);
 
-		// »õ·Î¿î ºñ¹Ğ¹øÈ£ ÀÔ·ÂÄ­
+		// ìƒˆë¡œìš´ ë¹„ë°€ë²ˆí˜¸ ì…ë ¥ì¹¸
 		passNew = new JPasswordField();
 		passNew.setBounds(180, 118, 145, 18);
 		pnChPw.add(passNew);
 
-		// ºñ¹Ğ¹øÈ£ È®ÀÎ ÀÔ·ÂÄ­
+		// ë¹„ë°€ë²ˆí˜¸ í™•ì¸ ì…ë ¥ì¹¸
 		passCheck = new JPasswordField();
 		passCheck.setBounds(180, 153, 145, 18);
 		pnChPw.add(passCheck);
@@ -114,39 +114,39 @@ public class ChangePW extends JFrame {
 
 		while(true) {
 			if(!LoginGUI.PassPW.equals(passBefore)) {
-				JOptionPane.showMessageDialog(null, "±âÁ¸ ºñ¹Ğ¹øÈ£¸¦ ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä.", "¿À·ù", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "ê¸°ì¡´ ë¹„ë°€ë²ˆí˜¸ë¥¼ ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”.", "ì˜¤ë¥˜", JOptionPane.ERROR_MESSAGE);
 				break;
 			}
 
 			else {
-				// ½Å±Ô ºñ¹Ğ¹øÈ£¿Í ±âÁ¸ ºñ¹Ğ¹øÈ£°¡ °°À¸¸é ¿À·ù
+				// ì‹ ê·œ ë¹„ë°€ë²ˆí˜¸ì™€ ê¸°ì¡´ ë¹„ë°€ë²ˆí˜¸ê°€ ê°™ìœ¼ë©´ ì˜¤ë¥˜
 				if (passBefore.equals(passAfter)) {
-					// °°À¸¸é ¸Ş½ÃÁöÃ¢
-					JOptionPane.showMessageDialog(null, "½Å±Ô ºñ¹Ğ¹øÈ£¿Í ±âÁ¸ ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÕ´Ï´Ù.", "¿À·ù", JOptionPane.ERROR_MESSAGE);
+					// ê°™ìœ¼ë©´ ë©”ì‹œì§€ì°½
+					JOptionPane.showMessageDialog(null, "ì‹ ê·œ ë¹„ë°€ë²ˆí˜¸ì™€ ê¸°ì¡´ ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•©ë‹ˆë‹¤.", "ì˜¤ë¥˜", JOptionPane.ERROR_MESSAGE);
 					break; // JOptionPane
 				}
 
 				else {
-					// ½Å±Ô ºñ¹Ğ¹øÈ£¿Í ºñ¹Ğ¹øÈ£ È®ÀÎÀÌ °°ÀºÁö
+					// ì‹ ê·œ ë¹„ë°€ë²ˆí˜¸ì™€ ë¹„ë°€ë²ˆí˜¸ í™•ì¸ì´ ê°™ì€ì§€
 					if (!passAfter.equals(passChk)) {
-						JOptionPane.showMessageDialog(null, "½Å±Ô ºñ¹Ğ¹øÈ£¿Í ºñ¹Ğ¹øÈ£ È®ÀÎÀÌ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù", "¿À·ù",
+						JOptionPane.showMessageDialog(null, "ì‹ ê·œ ë¹„ë°€ë²ˆí˜¸ì™€ ë¹„ë°€ë²ˆí˜¸ í™•ì¸ì´ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤", "ì˜¤ë¥˜",
 								JOptionPane.ERROR_MESSAGE);
 						break;
 					}
 
 					else {
-						// 7ÀÚ¸® ¿µ¹®ÀÚ ¼ıÀÚ Á¶ÇÕÀÎÁö
+						// 7ìë¦¬ ì˜ë¬¸ì ìˆ«ì ì¡°í•©ì¸ì§€
 						boolean mch = Pattern.matches("(^[A-Za-z0-9]{7}$)", passAfter);
 						if (mch == false) {
-							JOptionPane.showMessageDialog(null, "½Å±Ô ºñ¹Ğ¹øÈ£´Â 7ÀÚ¸®ÀÇ ¿µ¹®ÀÚ, ¼ıÀÚ¸¸ ÀÔ·Â °¡´ÉÇÕ´Ï´Ù.", "¿À·ù",
+							JOptionPane.showMessageDialog(null, "ì‹ ê·œ ë¹„ë°€ë²ˆí˜¸ëŠ” 7ìë¦¬ì˜ ì˜ë¬¸ì, ìˆ«ìë§Œ ì…ë ¥ ê°€ëŠ¥í•©ë‹ˆë‹¤.", "ì˜¤ë¥˜",
 									JOptionPane.ERROR_MESSAGE);
 							break;
 						}
 						else {
 							try {
 								new DAO().PWUpdate(passAfter);
-								JOptionPane.showMessageDialog(null, "ºñ¹Ğ¹øÈ£ º¯°æÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
-								dispose();	// Ã¢ Á¾·á
+								JOptionPane.showMessageDialog(null, "ë¹„ë°€ë²ˆí˜¸ ë³€ê²½ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
+								dispose();	// ì°½ ì¢…ë£Œ
 								break;
 							} catch (Exception e) {
 								System.out.println("[ERROR]" + e.getMessage());

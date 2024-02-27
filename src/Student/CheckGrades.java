@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 public class CheckGrades extends JPanel {
 	private JTable tbGrades;
 	
-	private String[] Header = {"°­ÀÇ¹øÈ£", "°­ÀÇ¸í", "´ã´ç±³¼ö", "ÃëµæÇĞÁ¡", "µî±Ş"};
+	private String[] Header = {"ê°•ì˜ë²ˆí˜¸", "ê°•ì˜ëª…", "ë‹´ë‹¹êµìˆ˜", "ì·¨ë“í•™ì ", "ë“±ê¸‰"};
 	private DefaultTableModel model = new DefaultTableModel(null, Header){
         public boolean isCellEditable(int rowIndex, int mColIndex) {
         	return false;
@@ -29,8 +29,8 @@ public class CheckGrades extends JPanel {
 		setBackground(Color.WHITE);
 		setLayout(null);
 		
-		JLabel lbTitle = new JLabel("¼ºÀûÁ¶È¸");
-		lbTitle.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 18));
+		JLabel lbTitle = new JLabel("ì„±ì ì¡°íšŒ");
+		lbTitle.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 18));
 		lbTitle.setBounds(17, 40, 82, 21);
 		add(lbTitle);
 		
@@ -47,13 +47,13 @@ public class CheckGrades extends JPanel {
 		Load();
 	}
 	
-	// µ¥ÀÌÅÍº£ÀÌ½ºÀÇ Á¤º¸¸¦ °¡Á®¿À±â À§ÇÑ ¸Ş¼Òµå(Load)
+	// ë°ì´í„°ë² ì´ìŠ¤ì˜ ì •ë³´ë¥¼ ê°€ì ¸ì˜¤ê¸° ìœ„í•œ ë©”ì†Œë“œ(Load)
 	public void Load() {
 		StuDAO dao = new StuDAO();
 		ArrayList<StudentGS> members = new ArrayList<StudentGS>();
 		Object record[] = new Object[5];
 
-		model.setNumRows(0);	// °Ë»ö ½Ã¸¶´Ù ±âÁ¸ Å×ÀÌºí¿¡ Ãâ·ÂµÈ ³»¿ëÀ» »èÁ¦
+		model.setNumRows(0);	// ê²€ìƒ‰ ì‹œë§ˆë‹¤ ê¸°ì¡´ í…Œì´ë¸”ì— ì¶œë ¥ëœ ë‚´ìš©ì„ ì‚­ì œ
 
 		try {				
 			members = dao.resultGrades();
@@ -69,7 +69,7 @@ public class CheckGrades extends JPanel {
 			}
 
 		} catch(SQLException e) {
-			System.out.println("[ERROR]"+e.getMessage()); // ¿¹¿Ü ¸Ş½ÃÁö (console) ÀÎ¼â
+			System.out.println("[ERROR]"+e.getMessage()); // ì˜ˆì™¸ ë©”ì‹œì§€ (console) ì¸ì‡„
 			e.printStackTrace();
 		} catch(Exception e) {
 			System.out.println("[ERROR]"+e.getMessage());

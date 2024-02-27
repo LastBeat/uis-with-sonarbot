@@ -22,7 +22,7 @@ import javax.swing.JButton;
 
 public class CheckSignUpClass extends JPanel {
 	public static JTable tbchkSignupClass;
-	private String[] Header = {"°­ÀÇ¹øÈ£", "°­ÀÇ¸í", "´ã´ç±³¼ö", "ÇĞÁ¡", " "};
+	private String[] Header = {"ê°•ì˜ë²ˆí˜¸", "ê°•ì˜ëª…", "ë‹´ë‹¹êµìˆ˜", "í•™ì ", " "};
 	private DefaultTableModel model = new DefaultTableModel(null, Header){
         public boolean isCellEditable(int rowIndex, int mColIndex) {
         	int i=0;
@@ -49,8 +49,8 @@ public class CheckSignUpClass extends JPanel {
 		setBackground(Color.WHITE);
 		setLayout(null);
 		
-		JLabel lbTitle = new JLabel("¼ö°­³»¿ªÁ¶È¸");
-		lbTitle.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 18));
+		JLabel lbTitle = new JLabel("ìˆ˜ê°•ë‚´ì—­ì¡°íšŒ");
+		lbTitle.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 18));
 		lbTitle.setBounds(17, 40, 136, 21);
 		add(lbTitle);
 		
@@ -77,12 +77,12 @@ public class CheckSignUpClass extends JPanel {
 
 		public TableCell() {
 			// TODO Auto-generated constructor stub
-			Cancel = new JButton("¼ö°­Ãë¼Ò");
+			Cancel = new JButton("ìˆ˜ê°•ì·¨ì†Œ");
 			
 			Cancel.addActionListener(e -> {
 				try {
 					new StuDAO().CancelClass();
-					JOptionPane.showMessageDialog(null, "¼ö°­½ÅÃ»ÀÌ Ãë¼Ò µÇ¾ú½À´Ï´Ù.");
+					JOptionPane.showMessageDialog(null, "ìˆ˜ê°•ì‹ ì²­ì´ ì·¨ì†Œ ë˜ì—ˆìŠµë‹ˆë‹¤.");
 				} catch (Exception e1) {
 					System.out.println("[ERROR]"+e1.getMessage());
 					e1.printStackTrace();
@@ -113,13 +113,13 @@ public class CheckSignUpClass extends JPanel {
 
 	}
 	
-	// µ¥ÀÌÅÍº£ÀÌ½ºÀÇ Á¤º¸¸¦ °¡Á®¿À±â À§ÇÑ ¸Ş¼Òµå(Load)
+	// ë°ì´í„°ë² ì´ìŠ¤ì˜ ì •ë³´ë¥¼ ê°€ì ¸ì˜¤ê¸° ìœ„í•œ ë©”ì†Œë“œ(Load)
 	public void Load() {
 		StuDAO dao = new StuDAO();
 		ArrayList<StudentGS> members = new ArrayList<StudentGS>();
 		Object record[] = new Object[4];
 
-		model.setNumRows(0);	// °Ë»ö ½Ã¸¶´Ù ±âÁ¸ Å×ÀÌºí¿¡ Ãâ·ÂµÈ ³»¿ëÀ» »èÁ¦
+		model.setNumRows(0);	// ê²€ìƒ‰ ì‹œë§ˆë‹¤ ê¸°ì¡´ í…Œì´ë¸”ì— ì¶œë ¥ëœ ë‚´ìš©ì„ ì‚­ì œ
 
 		try {				
 			members = dao.resultTakes();
@@ -134,7 +134,7 @@ public class CheckSignUpClass extends JPanel {
 			}
 
 		} catch(SQLException e) {
-			System.out.println("[ERROR]"+e.getMessage()); // ¿¹¿Ü ¸Ş½ÃÁö (console) ÀÎ¼â
+			System.out.println("[ERROR]"+e.getMessage()); // ì˜ˆì™¸ ë©”ì‹œì§€ (console) ì¸ì‡„
 			e.printStackTrace();
 		} catch(Exception e) {
 			System.out.println("[ERROR]"+e.getMessage());

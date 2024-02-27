@@ -27,34 +27,34 @@ public class RegClass extends JPanel {
 		setBackground(Color.WHITE);
 		setLayout(null);
 		
-		JLabel lbRegClass = new JLabel("°­ÁÂ µî·Ï");
+		JLabel lbRegClass = new JLabel("ê°•ì¢Œ ë“±ë¡");
 		lbRegClass.setForeground(new Color(0, 0, 128));
-		lbRegClass.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 18));
+		lbRegClass.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 18));
 		lbRegClass.setBounds(36, 15, 82, 21);
 		add(lbRegClass);
 		
-		JLabel lbClassNumber = new JLabel("°­ÁÂ¹øÈ£");
-		lbClassNumber.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		JLabel lbClassNumber = new JLabel("ê°•ì¢Œë²ˆí˜¸");
+		lbClassNumber.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 15));
 		lbClassNumber.setBounds(36, 51, 82, 21);
 		add(lbClassNumber);
 		
-		JLabel lbClassName = new JLabel("°­ÁÂÀÌ¸§");
-		lbClassName.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		JLabel lbClassName = new JLabel("ê°•ì¢Œì´ë¦„");
+		lbClassName.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 15));
 		lbClassName.setBounds(36, 87, 82, 21);
 		add(lbClassName);
 		
 		JLabel lbProfessor = new JLabel("\uB2F4\uB2F9\uAD50\uC218 ID");
-		lbProfessor.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		lbProfessor.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 15));
 		lbProfessor.setBounds(206, 48, 147, 21);
 		add(lbProfessor);
 		
-		JLabel lbScore = new JLabel("ÇĞÁ¡¼ö");
-		lbScore.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		JLabel lbScore = new JLabel("í•™ì ìˆ˜");
+		lbScore.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 15));
 		lbScore.setBounds(230, 118, 82, 21);
 		add(lbScore);
 		
-		JLabel lbExp = new JLabel("¼³¸í");
-		lbExp.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		JLabel lbExp = new JLabel("ì„¤ëª…");
+		lbExp.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 15));
 		lbExp.setBounds(36, 144, 82, 21);
 		add(lbExp);
 		
@@ -73,30 +73,30 @@ public class RegClass extends JPanel {
 		tfClassName.setBounds(112, 84, 251, 27);
 		add(tfClassName);
 		
-		JButton btnRegClass = new JButton("µî·Ï");
+		JButton btnRegClass = new JButton("ë“±ë¡");
 		btnRegClass.setBackground(Color.WHITE);
 		btnRegClass.setForeground(Color.WHITE);
 		btnRegClass.setContentAreaFilled(false); // 1
-		btnRegClass.setOpaque(true); // 2 //1,2¸¦ ¼±¾ğÇØÁà¾ß º¯°æÇÏ±â ¹öÆ°ÀÇ ¹è°æ»ö
+		btnRegClass.setOpaque(true); // 2 //1,2ë¥¼ ì„ ì–¸í•´ì¤˜ì•¼ ë³€ê²½í•˜ê¸° ë²„íŠ¼ì˜ ë°°ê²½ìƒ‰
 		btnRegClass.setBackground(new Color(0, 0, 139));
 		btnRegClass.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//Perm = cbScore.getSelectedItem().toString();
 				try {
-					new STFDAO().setClass();//°­ÁÂµî·ÏÀ¸·Î °íÃÄº½
-					JOptionPane.showMessageDialog(null, "µî·ÏÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+					new STFDAO().setClass();//ê°•ì¢Œë“±ë¡ìœ¼ë¡œ ê³ ì³ë´„
+					JOptionPane.showMessageDialog(null, "ë“±ë¡ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 				} catch (Exception e) {
 					System.out.println("[ERROR]"+e.getMessage());
 					e.printStackTrace();
 				}
 			}
 		});
-		btnRegClass.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		btnRegClass.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 15));
 		btnRegClass.setBounds(150, 256, 93, 29);
 		add(btnRegClass);
 		
-		JLabel label = new JLabel("ÃÖ´ë¼ö°­ÀÎ¿ø");
-		label.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		JLabel label = new JLabel("ìµœëŒ€ìˆ˜ê°•ì¸ì›");
+		label.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 15));
 		label.setBounds(36, 118, 123, 21);
 		add(label);
 		

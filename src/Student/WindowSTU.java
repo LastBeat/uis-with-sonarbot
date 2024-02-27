@@ -20,7 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.JLayeredPane;
 
 // Student - WindowSTU.java
-// ÇĞ»ı ±ÇÇÑÀÌ ÀÖ´Â °èÁ¤ »ç¿ëÀÚ¿¡°Ô º¸¿©Áö´Â ¸ŞÀÎ Ã¢ ±¸¼º
+// í•™ìƒ ê¶Œí•œì´ ìˆëŠ” ê³„ì • ì‚¬ìš©ìì—ê²Œ ë³´ì—¬ì§€ëŠ” ë©”ì¸ ì°½ êµ¬ì„±
 
 public class WindowSTU extends JFrame {
 	private JTextArea tfUserName;
@@ -32,7 +32,7 @@ public class WindowSTU extends JFrame {
 	private JButton btnCheckGrades;
 	
 	public WindowSTU() {
-		setTitle("´ëÇĞÁ¤º¸½Ã½ºÅÛ(UIS)::ÇĞ»ı");	// È­¸é Title ÁöÁ¤
+		setTitle("ëŒ€í•™ì •ë³´ì‹œìŠ¤í…œ(UIS)::í•™ìƒ");	// í™”ë©´ Title ì§€ì •
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 760, 500);
 		setResizable(false);
@@ -46,7 +46,7 @@ public class WindowSTU extends JFrame {
 		tfNo = new JTextArea();
 		tfNo.setDropMode(DropMode.INSERT);
 		tfNo.setBounds(103, 125, 39, 16);
-		tfNo.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 12));
+		tfNo.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 12));
 		tfNo.setForeground(Color.WHITE);
 		tfNo.setBackground(new Color(1, 0, 140));
 		tfNo.setEditable(false);
@@ -56,7 +56,7 @@ public class WindowSTU extends JFrame {
 		tfUserName = new JTextArea();
 		tfUserName.setDropMode(DropMode.INSERT);
 		tfUserName.setBounds(94, 144, 45, 24);
-		tfUserName.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		tfUserName.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 15));
 		tfUserName.setForeground(Color.WHITE);
 		tfUserName.setBackground(new Color(1, 0, 140));
 		tfUserName.setEditable(false);
@@ -66,8 +66,8 @@ public class WindowSTU extends JFrame {
 		btnLogout = new JButton("");
 		btnLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JOptionPane.showMessageDialog(null, "·Î±×¾Æ¿ô µÇ¾ú½À´Ï´Ù.");
-				dispose();	// Ã¢ Á¾·á
+				JOptionPane.showMessageDialog(null, "ë¡œê·¸ì•„ì›ƒ ë˜ì—ˆìŠµë‹ˆë‹¤.");
+				dispose();	// ì°½ ì¢…ë£Œ
 				LoginGUI frame = new LoginGUI();
 				frame.setLocationRelativeTo(null);
 			}
@@ -119,11 +119,11 @@ public class WindowSTU extends JFrame {
 
 		JLabel lbBG = new JLabel("");
 		lbBG.setBounds(0, 0, 754, 465);
-		lbBG.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
+		lbBG.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.PLAIN, 15));
 		lbBG.setIcon(new ImageIcon(".//Images//WindowBG.png"));
 		getContentPane().add(lbBG);
-		btnLogout.setBorderPainted(false);	// ¹öÆ° Å×µÎ¸® »èÁ¦
-		btnLogout.setOpaque(false);	// ¹öÆ° Åõ¸í ¼³Á¤
+		btnLogout.setBorderPainted(false);	// ë²„íŠ¼ í…Œë‘ë¦¬ ì‚­ì œ
+		btnLogout.setOpaque(false);	// ë²„íŠ¼ íˆ¬ëª… ì„¤ì •
 		btnLogout.setBounds(71, 173, 33, 33);
 		getContentPane().add(btnLogout);
 
@@ -136,8 +136,8 @@ public class WindowSTU extends JFrame {
 				layeredPane.add(info);
 			}
 		});
-		btnSettings.setBorderPainted(false);	// ¹öÆ° Å×µÎ¸® »èÁ¦
-		btnSettings.setOpaque(false);	// ¹öÆ° Åõ¸í ¼³Á¤
+		btnSettings.setBorderPainted(false);	// ë²„íŠ¼ í…Œë‘ë¦¬ ì‚­ì œ
+		btnSettings.setOpaque(false);	// ë²„íŠ¼ íˆ¬ëª… ì„¤ì •
 		btnSettings.setBounds(118, 173, 33, 33);
 		getContentPane().add(btnSettings);
 
@@ -146,7 +146,7 @@ public class WindowSTU extends JFrame {
 		setVisible(true);
 	}
 
-	// µ¥ÀÌÅÍº£ÀÌ½ºÀÇ Á¤º¸¸¦ °¡Á®¿À±â À§ÇÑ ¸Ş¼Òµå(Load)
+	// ë°ì´í„°ë² ì´ìŠ¤ì˜ ì •ë³´ë¥¼ ê°€ì ¸ì˜¤ê¸° ìœ„í•œ ë©”ì†Œë“œ(Load)
 	public void Load() {
 		StuDAO dao = new StuDAO();
 		ArrayList<StudentGS> members = new ArrayList<StudentGS>();
@@ -165,7 +165,7 @@ public class WindowSTU extends JFrame {
 			tfNo.append(MyID);
 			tfUserName.append(MyName);	
 		} catch(SQLException e) {
-			System.out.println("[ERROR]"+e.getMessage()); // ¿¹¿Ü ¸Ş½ÃÁö (console) ÀÎ¼â
+			System.out.println("[ERROR]"+e.getMessage()); // ì˜ˆì™¸ ë©”ì‹œì§€ (console) ì¸ì‡„
 			e.printStackTrace();
 		} catch(Exception e) {
 			System.out.println("[ERROR]"+e.getMessage());

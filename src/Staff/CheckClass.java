@@ -21,7 +21,7 @@ import javax.swing.table.TableCellRenderer;
 
 public class CheckClass extends JPanel {
 	public static JTable tbSearch;
-	private String[] Header = {"°­ÀÇ¹øÈ£", "°­ÀÇ¸í", "´ã´ç±³¼ö","ÇĞÁ¡¼ö","ÃÖ´ëÀÎ¿ø","¼³¸í","°³¼³¿©ºÎ", ""};//
+	private String[] Header = {"ê°•ì˜ë²ˆí˜¸", "ê°•ì˜ëª…", "ë‹´ë‹¹êµìˆ˜","í•™ì ìˆ˜","ìµœëŒ€ì¸ì›","ì„¤ëª…","ê°œì„¤ì—¬ë¶€", ""};//
 	private DefaultTableModel model = new DefaultTableModel(null, Header){
         public boolean isCellEditable(int rowIndex, int mColIndex) {
         	int i=0;
@@ -49,10 +49,10 @@ public class CheckClass extends JPanel {
 		setBackground(Color.WHITE);
 		setLayout(null);
 		
-		JLabel lbCheckClass = new JLabel("°­ÁÂ È®ÀÎ");
+		JLabel lbCheckClass = new JLabel("ê°•ì¢Œ í™•ì¸");
 		lbCheckClass.setForeground(new Color(0, 0, 128));
 		lbCheckClass.setBounds(17, 15, 82, 21);
-		lbCheckClass.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 18));
+		lbCheckClass.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 18));
 		add(lbCheckClass);
 		
 		Load();
@@ -80,13 +80,13 @@ public class CheckClass extends JPanel {
 
 		      public TableCell() {
 		         // TODO Auto-generated constructor stub
-		         Open= new JButton("°³¼³");
-		         Open.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 10));
+		         Open= new JButton("ê°œì„¤");
+		         Open.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 10));
 
 		         Open.addActionListener(e -> {
 		            try {
 		               new STFDAO().OpenClass();
-		               JOptionPane.showMessageDialog(null, "°­ÀÇ °³¼³ÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+		               JOptionPane.showMessageDialog(null, "ê°•ì˜ ê°œì„¤ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 		            } catch (Exception e1) {
 		               System.out.println("[ERROR]"+e1.getMessage());
 		               e1.printStackTrace();
@@ -117,7 +117,7 @@ public class CheckClass extends JPanel {
 		   }
 	
 	
-	//°­ÁÂ Á¤º¸¸¦ °¡Á®¿À´Â  ¸Ş¼Òµå
+	//ê°•ì¢Œ ì •ë³´ë¥¼ ê°€ì ¸ì˜¤ëŠ”  ë©”ì†Œë“œ
 	public void Load() {
 		STFDAO dao = new STFDAO();
 		ArrayList<STFGS> members = new ArrayList<STFGS>();
@@ -136,12 +136,12 @@ public class CheckClass extends JPanel {
 			record[3] = vo.getScore();
 			record[4] = vo.getCount();
 			record[5] = vo.getExp();
-			record[6] = vo.getSTATE(); //°³¼³¿©ºÎ
+			record[6] = vo.getSTATE(); //ê°œì„¤ì—¬ë¶€
 			model.addRow(record);
 		}
 			
 		} catch(SQLException e) {
-			System.out.println("[ERROR]"+e.getMessage()); // ¿¹¿Ü ¸Ş½ÃÁö (console) ÀÎ¼â
+			System.out.println("[ERROR]"+e.getMessage()); // ì˜ˆì™¸ ë©”ì‹œì§€ (console) ì¸ì‡„
 			e.printStackTrace();
 		} catch(Exception e) {
 			System.out.println("[ERROR]"+e.getMessage());

@@ -5,23 +5,23 @@ import java.io.IOException;
 import java.util.Properties;
 
 // Common - ReadProps.java
-// DBÁ¤º¸°¡ ÀúÀåµÇ¾î ÀÖ´Â Properties ÆÄÀÏÀ» ºÒ·¯¿À´Â ±â´É ¼öÇà
+// DBì •ë³´ê°€ ì €ì¥ë˜ì–´ ìˆëŠ” Properties íŒŒì¼ì„ ë¶ˆëŸ¬ì˜¤ëŠ” ê¸°ëŠ¥ ìˆ˜í–‰
 
 public class ReadProps {
-	 private static final String resource = "./db.properties";	// properties ÆÄÀÏ °æ·Î ÁöÁ¤
+	 private static final String resource = "./db.properties";	// properties íŒŒì¼ ê²½ë¡œ ì§€ì •
 	 private Properties props = new Properties();
 	
 	public ReadProps(){
 		try {
-			FileInputStream file = new FileInputStream(resource);	// properties ÆÄÀÏ ºÒ·¯¿À±â
+			FileInputStream file = new FileInputStream(resource);	// properties íŒŒì¼ ë¶ˆëŸ¬ì˜¤ê¸°
 			props.load(file);
 			file.close();
 		}catch(IOException e) {
-			System.out.println("[ERROR]Properties ÆÄÀÏÀ» ºÒ·¯¿Ã ¼ö ¾ø½À´Ï´Ù.");	// ¿¹¿Ü Ã³¸®
+			System.out.println("[ERROR]Properties íŒŒì¼ì„ ë¶ˆëŸ¬ì˜¬ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");	// ì˜ˆì™¸ ì²˜ë¦¬
 		}
 	}
 	
-	// °¢ Ç×¸ñº°·Î ´ëÀÀµÇ´Â °ªÀ» °¡Á®¿È
+	// ê° í•­ëª©ë³„ë¡œ ëŒ€ì‘ë˜ëŠ” ê°’ì„ ê°€ì ¸ì˜´
 	public String getDBName() {
 		return props.getProperty("DRIVER");
 	}

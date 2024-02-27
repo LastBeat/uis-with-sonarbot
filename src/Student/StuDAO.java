@@ -13,11 +13,11 @@ import Common.ReadProps;
 import Login.LoginGUI;
 
 // Student - StuDAO.java
-// »ç¿ëÀÚ Á¤º¸Ã¢¿¡ ÇÊ¿äÇÑ Á¤º¸(ÇĞ¹ø(±³¼ö¹øÈ£), ÀÌ¸§, ÇĞ°ú, ÁÖ¹Îµî·Ï¹øÈ£)¸¦ DB¿¡¼­ °¡Á®¿À¸ç,
-//ÇÁ·Î±×·¥ ³»¿¡¼­ »ç¿ëÇÒ ¼ö ÀÖ´Â Çü½ÄÀ¸·Î ÀúÀå
+// ì‚¬ìš©ì ì •ë³´ì°½ì— í•„ìš”í•œ ì •ë³´(í•™ë²ˆ(êµìˆ˜ë²ˆí˜¸), ì´ë¦„, í•™ê³¼, ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸)ë¥¼ DBì—ì„œ ê°€ì ¸ì˜¤ë©°,
+//í”„ë¡œê·¸ë¨ ë‚´ì—ì„œ ì‚¬ìš©í•  ìˆ˜ ìˆëŠ” í˜•ì‹ìœ¼ë¡œ ì €ì¥
 
 public class StuDAO {
-	// DB ¿¬°áÀ» À§ÇÑ DBÁ¤º¸ ºÒ·¯¿À±â
+	// DB ì—°ê²°ì„ ìœ„í•œ DBì •ë³´ ë¶ˆëŸ¬ì˜¤ê¸°
 	ReadProps pr = new ReadProps();
 
 	public String oracleDriver=pr.getDBName();
@@ -25,20 +25,20 @@ public class StuDAO {
 	public String oracleId=pr.getDBId();
 	public String oraclePw=pr.getDBPw();
 
-	// JDBC ¿¬°á ¸Ş¼Òµå
+	// JDBC ì—°ê²° ë©”ì†Œë“œ
 	public Connection getConnection() throws ClassNotFoundException, Exception{
-		Connection con = null; // JDBC¿ÍÀÇ ¿¬°á °´Ã¼ ÃÊ±âÈ­
+		Connection con = null; // JDBCì™€ì˜ ì—°ê²° ê°ì²´ ì´ˆê¸°í™”
 
 		try{
-			Class.forName(oracleDriver); // JDBC Driver °Ë»ö
+			Class.forName(oracleDriver); // JDBC Driver ê²€ìƒ‰
 			con = DriverManager.getConnection(oracleURL,oracleId,oraclePw); // JDBC URL
 
-			// JDBC driver ´©¶ô ½Ã ¿¹¿ÜÃ³¸®
+			// JDBC driver ëˆ„ë½ ì‹œ ì˜ˆì™¸ì²˜ë¦¬
 		} catch(ClassNotFoundException e){
 			System.out.println("[ERROR]"+e.getMessage());
 			e.printStackTrace();
 
-			// ¸ğµç ¿¹¿Ü»óÈ² Ã³¸®
+			// ëª¨ë“  ì˜ˆì™¸ìƒí™© ì²˜ë¦¬
 		} catch(Exception e){
 			System.out.println("[ERROR]"+e.getMessage());
 			e.printStackTrace();
@@ -47,7 +47,7 @@ public class StuDAO {
 		return con;
 	}
 
-	// »ç¿ëÀÚ Á¤º¸¸¦ °¡Á®¿À´Â ±â´É ¸Ş¼Òµå
+	// ì‚¬ìš©ì ì •ë³´ë¥¼ ê°€ì ¸ì˜¤ëŠ” ê¸°ëŠ¥ ë©”ì†Œë“œ
 	public ArrayList<StudentGS> getMembers() throws SQLException, Exception{
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -64,11 +64,11 @@ public class StuDAO {
 			rs = pstmt.executeQuery();
 
 			while(rs.next()){
-				member = new StudentGS(); // ÀÓ½Ã »ı¼º
-				member.setID(rs.getString("ID")); // id ÇÊµå°ªÀ» °¡Á®¿È
-				member.setName(rs.getString("NAME")); // name ÇÊµå°ªÀ» °¡Á®¿È
-				member.setDept(rs.getString("DEPT_NAME")); // dept ÇÊµå°ªÀ» °¡Á®¿È
-				member.setRRN(rs.getString("RRN")); // RRN ÇÊµå°ªÀ» °¡Á®¿È
+				member = new StudentGS(); // ì„ì‹œ ìƒì„±
+				member.setID(rs.getString("ID")); // id í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setName(rs.getString("NAME")); // name í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setDept(rs.getString("DEPT_NAME")); // dept í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setRRN(rs.getString("RRN")); // RRN í•„ë“œê°’ì„ ê°€ì ¸ì˜´
 				members.add(member);
 			}
 
@@ -88,7 +88,7 @@ public class StuDAO {
 		return members;
 	}
 
-	// ½ÅÃ»°¡´ÉÇÑ °­ÀÇ¸ñ·Ï¸¦ °¡Á®¿À´Â ±â´É ¸Ş¼Òµå
+	// ì‹ ì²­ê°€ëŠ¥í•œ ê°•ì˜ëª©ë¡ë¥¼ ê°€ì ¸ì˜¤ëŠ” ê¸°ëŠ¥ ë©”ì†Œë“œ
 	public ArrayList<StudentGS> OpenedClass() throws SQLException, Exception{
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -107,13 +107,13 @@ public class StuDAO {
 			rs = pstmt.executeQuery();
 
 			while(rs.next()){
-				member = new StudentGS(); // ÀÓ½Ã »ı¼º
+				member = new StudentGS(); // ì„ì‹œ ìƒì„±
 
-				member.setID(rs.getString("ID")); // id ÇÊµå°ªÀ» °¡Á®¿È
-				member.setCouName(rs.getString("NAME")); // °­ÀÇ Å×ÀÌºí-name ÇÊµå°ªÀ» °¡Á®¿È
-				member.setName(rs.getString("ProfName")); // ±³¼ö Å×ÀÌºí-name ÇÊµå°ªÀ» °¡Á®¿È
-				member.setCredit(rs.getString("CREDIT")); // °­ÀÇ Å×ÀÌºí-Credit ÇÊµå°ªÀ» °¡Á®¿È
-				member.setIntro(rs.getString("INTRO")); // °­ÀÇ Å×ÀÌºí-Credit ÇÊµå°ªÀ» °¡Á®¿È
+				member.setID(rs.getString("ID")); // id í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setCouName(rs.getString("NAME")); // ê°•ì˜ í…Œì´ë¸”-name í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setName(rs.getString("ProfName")); // êµìˆ˜ í…Œì´ë¸”-name í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setCredit(rs.getString("CREDIT")); // ê°•ì˜ í…Œì´ë¸”-Credit í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setIntro(rs.getString("INTRO")); // ê°•ì˜ í…Œì´ë¸”-Credit í•„ë“œê°’ì„ ê°€ì ¸ì˜´
 
 				members.add(member);
 			}
@@ -134,7 +134,7 @@ public class StuDAO {
 		return members;
 	}
 
-	// »ç¿ëÀÚ ¼ö°­ ÇöÈ²À» °¡Á®¿À´Â ±â´É ¸Ş¼Òµå
+	// ì‚¬ìš©ì ìˆ˜ê°• í˜„í™©ì„ ê°€ì ¸ì˜¤ëŠ” ê¸°ëŠ¥ ë©”ì†Œë“œ
 	public ArrayList<StudentGS> resultTakes() throws SQLException, Exception{
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -153,12 +153,12 @@ public class StuDAO {
 			rs = pstmt.executeQuery();
 
 			while(rs.next()){
-				member = new StudentGS(); // ÀÓ½Ã »ı¼º
+				member = new StudentGS(); // ì„ì‹œ ìƒì„±
 
-				member.setID(rs.getString("COU_ID")); // id ÇÊµå°ªÀ» °¡Á®¿È
-				member.setCouName(rs.getString("NAME")); // °­ÀÇ Å×ÀÌºí-name ÇÊµå°ªÀ» °¡Á®¿È
-				member.setName(rs.getString("ProfName")); // ±³¼ö Å×ÀÌºí-name ÇÊµå°ªÀ» °¡Á®¿È
-				member.setCredit(rs.getString("CREDIT")); // °­ÀÇ Å×ÀÌºí-Credit ÇÊµå°ªÀ» °¡Á®¿È
+				member.setID(rs.getString("COU_ID")); // id í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setCouName(rs.getString("NAME")); // ê°•ì˜ í…Œì´ë¸”-name í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setName(rs.getString("ProfName")); // êµìˆ˜ í…Œì´ë¸”-name í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setCredit(rs.getString("CREDIT")); // ê°•ì˜ í…Œì´ë¸”-Credit í•„ë“œê°’ì„ ê°€ì ¸ì˜´
 
 				members.add(member);
 			}
@@ -179,7 +179,7 @@ public class StuDAO {
 		return members;
 	}
 
-	// ¼ö°­½ÅÃ»À» À§ÇÑ ±â´É ¸Ş¼Òµå
+	// ìˆ˜ê°•ì‹ ì²­ì„ ìœ„í•œ ê¸°ëŠ¥ ë©”ì†Œë“œ
 	public void submitClass() throws SQLException, Exception{
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -208,7 +208,7 @@ public class StuDAO {
 			cntCredit = cntCredit + SubmitCredit;
 
 			if(cntCredit>18) {
-				JOptionPane.showMessageDialog(null, "½ÅÃ»°¡´ÉÇÑ ÇĞÁ¡À» ÃÊ°úÇÏ¿´½À´Ï´Ù.", "Error", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "ì‹ ì²­ê°€ëŠ¥í•œ í•™ì ì„ ì´ˆê³¼í•˜ì˜€ìŠµë‹ˆë‹¤.", "Error", JOptionPane.ERROR_MESSAGE);
 				break;
 			}
 
@@ -219,7 +219,7 @@ public class StuDAO {
 					pstmt = con.prepareStatement(sql);
 					rs = pstmt.executeQuery();
 
-					JOptionPane.showMessageDialog(null, "¼ö°­½ÅÃ»ÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+					JOptionPane.showMessageDialog(null, "ìˆ˜ê°•ì‹ ì²­ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 
 					rs.close();
 					pstmt.close();
@@ -241,7 +241,7 @@ public class StuDAO {
 
 
 
-	// ¼ö°­Ãë¼Ò¸¦ À§ÇÑ ±â´É ¸Ş¼Òµå
+	// ìˆ˜ê°•ì·¨ì†Œë¥¼ ìœ„í•œ ê¸°ëŠ¥ ë©”ì†Œë“œ
 	public void CancelClass() throws SQLException, Exception{
 		Connection con = null;
 
@@ -253,7 +253,7 @@ public class StuDAO {
 		String sq1Select = null;
 		String sq1Delete = null;
 
-		StudentGS Result = new StudentGS(); // ÀÓ½Ã »ı¼º
+		StudentGS Result = new StudentGS(); // ì„ì‹œ ìƒì„±
 
 		con = getConnection();
 
@@ -265,7 +265,7 @@ public class StuDAO {
 
 
 			while(rsSelect.next()){
-				Result.setID(rsSelect.getString("ID")); // id ÇÊµå°ªÀ» °¡Á®¿È
+				Result.setID(rsSelect.getString("ID")); // id í•„ë“œê°’ì„ ê°€ì ¸ì˜´
 			}
 
 			String ResultSelect = Result.getID();
@@ -291,7 +291,7 @@ public class StuDAO {
 		}
 	}
 
-	// ¼ºÀûÁ¶È¸ ±â´É ¸Ş¼Òµå
+	// ì„±ì ì¡°íšŒ ê¸°ëŠ¥ ë©”ì†Œë“œ
 	public ArrayList<StudentGS> resultGrades() throws SQLException, Exception{
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -310,13 +310,13 @@ public class StuDAO {
 			rs = pstmt.executeQuery();
 
 			while(rs.next()){
-				member = new StudentGS(); // ÀÓ½Ã »ı¼º
+				member = new StudentGS(); // ì„ì‹œ ìƒì„±
 
-				member.setID(rs.getString("COU_ID")); // id ÇÊµå°ªÀ» °¡Á®¿È
-				member.setCouName(rs.getString("NAME")); // °­ÀÇ Å×ÀÌºí-name ÇÊµå°ªÀ» °¡Á®¿È
-				member.setName(rs.getString("ProfName")); // ±³¼ö Å×ÀÌºí-name ÇÊµå°ªÀ» °¡Á®¿È
-				member.setCredit(rs.getString("CREDIT")); // °­ÀÇ Å×ÀÌºí-Credit ÇÊµå°ªÀ» °¡Á®¿È
-				member.setScore(rs.getString("SCORE")); // Score ÇÊµå°ªÀ» °¡Á®¿È
+				member.setID(rs.getString("COU_ID")); // id í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setCouName(rs.getString("NAME")); // ê°•ì˜ í…Œì´ë¸”-name í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setName(rs.getString("ProfName")); // êµìˆ˜ í…Œì´ë¸”-name í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setCredit(rs.getString("CREDIT")); // ê°•ì˜ í…Œì´ë¸”-Credit í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setScore(rs.getString("SCORE")); // Score í•„ë“œê°’ì„ ê°€ì ¸ì˜´
 
 				members.add(member);
 			}

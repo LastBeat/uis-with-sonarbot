@@ -1,7 +1,7 @@
 package Student;
 
 //Student - StudentGS.java
-//»ç¿ëÀÚ Á¤º¸È­¸é¿¡¼­ ÇÊ¿äÇÑ id, »ç¿ëÀÚ¸í, ÇĞ°ú, ÁÖ¹Îµî·Ï¹øÈ£ °ªÀ» set/getÇÏ´Â Å¬·¡½º
+//ì‚¬ìš©ì ì •ë³´í™”ë©´ì—ì„œ í•„ìš”í•œ id, ì‚¬ìš©ìëª…, í•™ê³¼, ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸ ê°’ì„ set/getí•˜ëŠ” í´ë˜ìŠ¤
 
 public class StudentGS {
 	private String ID;

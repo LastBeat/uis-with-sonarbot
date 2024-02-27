@@ -1,7 +1,7 @@
 package Login;
 
 // Login - LoginGS.java
-// Login½Ã ÇÊ¿äÇÑ id, pw °ªÀ» set/getÇÏ´Â Å¬·¡½º
+// Loginì‹œ í•„ìš”í•œ id, pw ê°’ì„ set/getí•˜ëŠ” í´ë˜ìŠ¤
 
 public class LoginGS {
 	private String id;

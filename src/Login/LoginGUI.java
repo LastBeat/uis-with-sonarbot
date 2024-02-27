@@ -24,7 +24,7 @@ import Staff.WindowSTFH;
 import Student.WindowSTU;
 
 // Login - LoginGUI.java
-// »ç¿ëÀÚ¿¡°Ô º¸¿©Áö´Â Login È­¸é±¸¼º
+// ì‚¬ìš©ìì—ê²Œ ë³´ì—¬ì§€ëŠ” Login í™”ë©´êµ¬ì„±
 
 public class LoginGUI extends JFrame {
 	private JPanel contentPane;
@@ -35,9 +35,9 @@ public class LoginGUI extends JFrame {
 	private static JPasswordField FieldPW;
 
 	public LoginGUI() {
-		setTitle("´ëÇĞÁ¤º¸½Ã½ºÅÛ(UIS)::Login"); // È­¸é Title ÁöÁ¤
-		setResizable(false); // È­¸é Å©±â Á¶Á¤ ºÒ°¡
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // È­¸é Á¾·á ½Ã ÇÁ·Î¼¼½ºµµ Á¾·á
+		setTitle("ëŒ€í•™ì •ë³´ì‹œìŠ¤í…œ(UIS)::Login"); // í™”ë©´ Title ì§€ì •
+		setResizable(false); // í™”ë©´ í¬ê¸° ì¡°ì • ë¶ˆê°€
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // í™”ë©´ ì¢…ë£Œ ì‹œ í”„ë¡œì„¸ìŠ¤ë„ ì¢…ë£Œ
 		setBounds(100, 100, 510, 340);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -54,19 +54,19 @@ public class LoginGUI extends JFrame {
 		LabelPW.setBounds(160, 158, 76, 19);
 		panel.add(LabelPW);
 		LabelPW.setForeground(Color.DARK_GRAY);
-		LabelPW.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 13));
+		LabelPW.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 13));
 
-		JLabel LabelTitle = new JLabel("´ëÇĞÁ¤º¸½Ã½ºÅÛ(UIS)");
+		JLabel LabelTitle = new JLabel("ëŒ€í•™ì •ë³´ì‹œìŠ¤í…œ(UIS)");
 		LabelTitle.setBounds(160, 66, 191, 32);
 		panel.add(LabelTitle);
 		LabelTitle.setForeground(new Color(25, 25, 112));
-		LabelTitle.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 20));
+		LabelTitle.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 20));
 
 		JLabel LabelID = new JLabel("ID");
 		LabelID.setBounds(161, 127, 22, 23);
 		panel.add(LabelID);
 		LabelID.setForeground(Color.DARK_GRAY);
-		LabelID.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 13));
+		LabelID.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 13));
 
 		FieldID = new JTextField();
 
@@ -79,23 +79,23 @@ public class LoginGUI extends JFrame {
 		panel.add(FieldPW);
 		FieldPW.setColumns(10);
 
-		JButton BtnLogin = new JButton("·Î±×ÀÎ");
+		JButton BtnLogin = new JButton("ë¡œê·¸ì¸");
 		BtnLogin.setBounds(160, 192, 191, 32);
 		panel.add(BtnLogin);
 		BtnLogin.setBackground(new Color(25, 25, 112));
 		BtnLogin.setForeground(new Color(255, 255, 255));
 		BtnLogin.setContentAreaFilled(false); // 1
-		BtnLogin.setOpaque(true); // 2 //1,2¸¦ ¼±¾ğÇØÁà¾ß º¯°æÇÏ±â ¹öÆ°ÀÇ ¹è°æ»ö
+		BtnLogin.setOpaque(true); // 2 //1,2ë¥¼ ì„ ì–¸í•´ì¤˜ì•¼ ë³€ê²½í•˜ê¸° ë²„íŠ¼ì˜ ë°°ê²½ìƒ‰
 		BtnLogin.setBackground(new Color(0, 0, 139));
 
 		BtnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				new DAO(); // µ¥ÀÌÅÍ¸¦ ºÒ·¯¿È
-				Check(); // Çã¿ëµÈ »ç¿ëÀÚÀÎÁö È®ÀÎ
+				new DAO(); // ë°ì´í„°ë¥¼ ë¶ˆëŸ¬ì˜´
+				Check(); // í—ˆìš©ëœ ì‚¬ìš©ìì¸ì§€ í™•ì¸
 			}
 		});
 
-		BtnLogin.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 14));
+		BtnLogin.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 14));
 
 		JLabel label = new JLabel("");
 		label.setBounds(-3, 0, 510, 305);
@@ -103,7 +103,7 @@ public class LoginGUI extends JFrame {
 		panel.add(label);
 	}
 
-	// µî·ÏµÈ °èÁ¤ÀÎÁö È®ÀÎÇÏ´Â ±â´ÉÀ» ¼öÇàÇÏ´Â ¸Ş¼Òµå
+	// ë“±ë¡ëœ ê³„ì •ì¸ì§€ í™•ì¸í•˜ëŠ” ê¸°ëŠ¥ì„ ìˆ˜í–‰í•˜ëŠ” ë©”ì†Œë“œ
 	public void Check() {
 		HashMap<String, String> map = new HashMap<String, String>();
 		DAO dao = new DAO();
@@ -113,7 +113,7 @@ public class LoginGUI extends JFrame {
 			members = dao.getMembers();
 
 			for (int i = 0; i < members.size(); i++)
-				// DB¿¡¼­ ºÒ·¯¿Â ÀÚ·á¿¡¼­ id, pw °ªÀ» ¸ÅÇÎ
+				// DBì—ì„œ ë¶ˆëŸ¬ì˜¨ ìë£Œì—ì„œ id, pw ê°’ì„ ë§¤í•‘
 				map.put(members.get(i).getId(), members.get(i).getPw());
 
 			while (true) {
@@ -123,13 +123,13 @@ public class LoginGUI extends JFrame {
 				String password = LoginGUI.FieldPW.getText();
 
 				if (!map.containsKey(id)) {
-					JOptionPane.showMessageDialog(null, "ÀÔ·ÂÇÏ½Å id´Â Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä.", "·Î±×ÀÎ ½ÇÆĞ",
+					JOptionPane.showMessageDialog(null, "ì…ë ¥í•˜ì‹  idëŠ” ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”.", "ë¡œê·¸ì¸ ì‹¤íŒ¨",
 							JOptionPane.ERROR_MESSAGE);
 					break;
 				}
 
 				else if (!(map.get(id)).equals(password)) {
-					JOptionPane.showMessageDialog(null, "ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä.", "·Î±×ÀÎ ½ÇÆĞ",
+					JOptionPane.showMessageDialog(null, "ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”.", "ë¡œê·¸ì¸ ì‹¤íŒ¨",
 							JOptionPane.ERROR_MESSAGE);
 					break;
 				}
@@ -140,7 +140,7 @@ public class LoginGUI extends JFrame {
 					PassID = id;
 					PassPW = password;
 
-					// »ç¿ëÀÚ Á÷±Şº°·Î ÇØ´çµÇ´Â Ã¢À¸·Î ÀÌµ¿
+					// ì‚¬ìš©ì ì§ê¸‰ë³„ë¡œ í•´ë‹¹ë˜ëŠ” ì°½ìœ¼ë¡œ ì´ë™
 					if (id.substring(0, 1).equals("S"))
 						new WindowSTU();
 					else if (id.substring(0, 1).equals("P"))
@@ -154,7 +154,7 @@ public class LoginGUI extends JFrame {
 				}
 
 			}
-			// ¿¹¿Ü Ã³¸®
+			// ì˜ˆì™¸ ì²˜ë¦¬
 		} catch (SQLException e) {
 			System.out.println("[ERROR]" + e.getMessage());
 			e.printStackTrace();

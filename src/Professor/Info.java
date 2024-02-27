@@ -19,16 +19,16 @@ import javax.swing.JButton;
 import java.awt.Color;
 
 // Student - Info.java
-// ÇĞ»ı »ç¿ëÀÚÁ¤º¸¸¦ Ãâ·ÂÇØÁÖ´Â JPanel
+// í•™ìƒ ì‚¬ìš©ìì •ë³´ë¥¼ ì¶œë ¥í•´ì£¼ëŠ” JPanel
 
 public class Info extends JPanel {
-	// »ç¿ëÀÚ Á¤º¸ È­¸é¿¡ Ãâ·ÂµÇ´Â Ç×¸ñ¿¡ ´ëÇÑ TextArea »ı¼º
+	// ì‚¬ìš©ì ì •ë³´ í™”ë©´ì— ì¶œë ¥ë˜ëŠ” í•­ëª©ì— ëŒ€í•œ TextArea ìƒì„±
 	private JTextArea UserID;
 	private JTextArea UserDEPT;
 	private JTextArea UserNAME;
 	private JTextArea UserRRN;
 	
-	// »ç¿ëÀÚ Á¤º¸ È­¸é¿¡ Ç¥½ÃµÇ´Â Title ¹× ÀÌ¹ÌÁö ¶óº§
+	// ì‚¬ìš©ì ì •ë³´ í™”ë©´ì— í‘œì‹œë˜ëŠ” Title ë° ì´ë¯¸ì§€ ë¼ë²¨
 	private JLabel LbTitle;
 	private JLabel lbBG;
 
@@ -37,28 +37,28 @@ public class Info extends JPanel {
 		setLayout(null);
 		
 		lbBG = new JLabel("");
-		lbBG.setIcon(new ImageIcon("./Images/Line.png"));	// (¾ÈÁ¤¼º)»ó´ë°æ·Î¸¦ ÅëÇÑ ÀÌ¹ÌÁö ·Îµù
+		lbBG.setIcon(new ImageIcon("./Images/Line.png"));	// (ì•ˆì •ì„±)ìƒëŒ€ê²½ë¡œë¥¼ í†µí•œ ì´ë¯¸ì§€ ë¡œë”©
 		lbBG.setBounds(0, 0, 444, 59);
 		add(lbBG);
 		
-		LbTitle = new JLabel("»ç¿ëÀÚ Á¤º¸");
-		LbTitle.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 20));
+		LbTitle = new JLabel("ì‚¬ìš©ì ì •ë³´");
+		LbTitle.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 20));
 		LbTitle.setBounds(14, 23, 146, 24);
 		add(LbTitle);
 		
-		JLabel LbID = new JLabel("ÇĞ¹ø/±³¼ö¹øÈ£");
-		LbID.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));
+		JLabel LbID = new JLabel("í•™ë²ˆ/êµìˆ˜ë²ˆí˜¸");
+		LbID.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 16));
 		LbID.setBounds(10, 71, 108, 18);
 		add(LbID);
 		
 		UserID = new JTextArea();
 		UserID.setBounds(119, 71, 116, 24);
-		UserID.setEditable(false); // (setEditable)»ç¿ëÀÚ ÀÓÀÇ·Î  Ãâ·ÂµÈ ³»¿ë ¼öÁ¤ ºÒ°¡
-		UserID.setColumns(10);	// ÇĞ¹ø¿¡ ´ëÇØ ÃÖ´ë ÀÔ·Â ±ÛÀÚ ¼ö¸¦ Á¦ÇÑ
+		UserID.setEditable(false); // (setEditable)ì‚¬ìš©ì ì„ì˜ë¡œ  ì¶œë ¥ëœ ë‚´ìš© ìˆ˜ì • ë¶ˆê°€
+		UserID.setColumns(10);	// í•™ë²ˆì— ëŒ€í•´ ìµœëŒ€ ì…ë ¥ ê¸€ì ìˆ˜ë¥¼ ì œí•œ
 		add(UserID);
 		
-		JLabel LbDEPT = new JLabel("ÇĞ°ú");
-		LbDEPT.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));
+		JLabel LbDEPT = new JLabel("í•™ê³¼");
+		LbDEPT.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 16));
 		LbDEPT.setBounds(10, 113, 44, 18);
 		add(LbDEPT);
 		
@@ -68,8 +68,8 @@ public class Info extends JPanel {
 		UserDEPT.setColumns(10);
 		add(UserDEPT);
 		
-		JLabel LbName = new JLabel("¼º¸í");
-		LbName.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));
+		JLabel LbName = new JLabel("ì„±ëª…");
+		LbName.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 16));
 		LbName.setBounds(249, 71, 44, 18);
 		add(LbName);
 		
@@ -79,8 +79,8 @@ public class Info extends JPanel {
 		UserNAME.setColumns(10);
 		add(UserNAME);
 		
-		JLabel LbRRN = new JLabel("ÁÖ¹Îµî·Ï¹øÈ£");
-		LbRRN.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));
+		JLabel LbRRN = new JLabel("ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸");
+		LbRRN.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 16));
 		LbRRN.setBounds(10, 161, 108, 18);
 		add(LbRRN);
 		
@@ -90,7 +90,7 @@ public class Info extends JPanel {
 		UserRRN.setColumns(10);
 		add(UserRRN);
 		
-		JButton btnChPw = new JButton("ºñ¹Ğ¹øÈ£ º¯°æ");
+		JButton btnChPw = new JButton("ë¹„ë°€ë²ˆí˜¸ ë³€ê²½");
 		btnChPw.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ChangePW frame = new ChangePW();
@@ -98,16 +98,16 @@ public class Info extends JPanel {
 				frame.setVisible(true);
 			}
 		});
-		btnChPw.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		btnChPw.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 15));
 		btnChPw.setBounds(315, 22, 129, 27);
 		add(btnChPw);
 		
-		Load();	// »ı¼ºÀÚ ½ÇÇà ½Ã Á¤º¸ ºÒ·¯¿À±â¸¦ ÀÚµ¿ ½ÇÇà
+		Load();	// ìƒì„±ì ì‹¤í–‰ ì‹œ ì •ë³´ ë¶ˆëŸ¬ì˜¤ê¸°ë¥¼ ìë™ ì‹¤í–‰
 		
-		setVisible(true); // (setVisible)ÆĞ³Î Ãâ·Â
+		setVisible(true); // (setVisible)íŒ¨ë„ ì¶œë ¥
 	}
 	
-	// »ç¿ëÀÚ Á¤º¸¸¦ °¡Á®¿À´Â ±â´É ¸Ş¼Òµå
+	// ì‚¬ìš©ì ì •ë³´ë¥¼ ê°€ì ¸ì˜¤ëŠ” ê¸°ëŠ¥ ë©”ì†Œë“œ
 	public void Load() {
 		ProfDAO dao = new ProfDAO();
 		ArrayList<ProfGS> members = new ArrayList<ProfGS>();
@@ -135,7 +135,7 @@ public class Info extends JPanel {
 			
 			
 		} catch(SQLException e) {
-			System.out.println("[ERROR]"+e.getMessage()); // ¿¹¿Ü ¸Ş½ÃÁö (console) ÀÎ¼â
+			System.out.println("[ERROR]"+e.getMessage()); // ì˜ˆì™¸ ë©”ì‹œì§€ (console) ì¸ì‡„
 			e.printStackTrace();
 		} catch(Exception e) {
 			System.out.println("[ERROR]"+e.getMessage());

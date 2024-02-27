@@ -19,7 +19,7 @@ import java.awt.event.ActionEvent;
 
 public class Attendance extends JPanel {
 	private JTable tbAttendance;
-	private String[] Header = { "ÇĞ¹ø", "ÀÌ¸§", "µî±Ş" };
+	private String[] Header = { "í•™ë²ˆ", "ì´ë¦„", "ë“±ê¸‰" };
 	private String [] Select = {};
 	private DefaultTableModel model = new DefaultTableModel(null, Header){
         public boolean isCellEditable(int rowIndex, int mColIndex) {
@@ -36,15 +36,15 @@ public class Attendance extends JPanel {
 		setBackground(Color.WHITE);
 		setLayout(null);
 
-		JLabel lbTitle = new JLabel("Ãâ¼®ºÎ Á¶È¸");
+		JLabel lbTitle = new JLabel("ì¶œì„ë¶€ ì¡°íšŒ");
 		lbTitle.setForeground(new Color(0, 0, 128));
-		lbTitle.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 18));
+		lbTitle.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 18));
 		lbTitle.setBounds(17, 15, 121, 21);
 		add(lbTitle);
 
-		JLabel lbLectName = new JLabel("ÁøÇàÁßÀÎ °­ÀÇ");
+		JLabel lbLectName = new JLabel("ì§„í–‰ì¤‘ì¸ ê°•ì˜");
 		lbLectName.setForeground(Color.DARK_GRAY);
-		lbLectName.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		lbLectName.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 15));
 		lbLectName.setBounds(27, 48, 111, 18);
 		add(lbLectName);
 		
@@ -56,22 +56,22 @@ public class Attendance extends JPanel {
 		}
 
 		cbLect = new JComboBox(Select);
-		//Ç×¸ñÃß°¡
+		//í•­ëª©ì¶”ê°€
 		cbLect.setBounds(130, 47, 200, 24);
 		add(cbLect);
 
-		JButton btnRun = new JButton("Á¶È¸");
+		JButton btnRun = new JButton("ì¡°íšŒ");
 		btnRun.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Load(); // Á¤º¸°¡Á®¿À±â
+				Load(); // ì •ë³´ê°€ì ¸ì˜¤ê¸°
 			}
 		});
 		btnRun.setBackground(new Color(0, 0, 128));
 		btnRun.setForeground(new Color(255, 255, 255));
 		btnRun.setContentAreaFilled(false); // 1
-		btnRun.setOpaque(true); // 2 //1,2¸¦ ¼±¾ğÇØÁà¾ß º¯°æÇÏ±â ¹öÆ°ÀÇ ¹è°æ»ö
+		btnRun.setOpaque(true); // 2 //1,2ë¥¼ ì„ ì–¸í•´ì¤˜ì•¼ ë³€ê²½í•˜ê¸° ë²„íŠ¼ì˜ ë°°ê²½ìƒ‰
 		btnRun.setBackground(new Color(0, 0, 139));
-		btnRun.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		btnRun.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 15));
 		btnRun.setBounds(334, 47, 83, 24);
 		add(btnRun);
 
@@ -86,13 +86,13 @@ public class Attendance extends JPanel {
 		add(scroll);
 	}
 
-	// µ¥ÀÌÅÍº£ÀÌ½ºÀÇ Á¤º¸¸¦ °¡Á®¿À±â À§ÇÑ ¸Ş¼Òµå(Load)
+	// ë°ì´í„°ë² ì´ìŠ¤ì˜ ì •ë³´ë¥¼ ê°€ì ¸ì˜¤ê¸° ìœ„í•œ ë©”ì†Œë“œ(Load)
 	public void Load() {
 		ProfDAO dao = new ProfDAO();
 		ArrayList<ProfGS> members = new ArrayList<ProfGS>();
 		Object record[] = new Object[4];
 
-		model.setNumRows(0); // °Ë»ö ½Ã¸¶´Ù ±âÁ¸ Å×ÀÌºí¿¡ Ãâ·ÂµÈ ³»¿ëÀ» »èÁ¦
+		model.setNumRows(0); // ê²€ìƒ‰ ì‹œë§ˆë‹¤ ê¸°ì¡´ í…Œì´ë¸”ì— ì¶œë ¥ëœ ë‚´ìš©ì„ ì‚­ì œ
 
 		try {
 			members = dao.resultAtt();
@@ -106,7 +106,7 @@ public class Attendance extends JPanel {
 			}
 
 		} catch (SQLException e) {
-			System.out.println("[ERROR]" + e.getMessage()); // ¿¹¿Ü ¸Ş½ÃÁö (console) ÀÎ¼â
+			System.out.println("[ERROR]" + e.getMessage()); // ì˜ˆì™¸ ë©”ì‹œì§€ (console) ì¸ì‡„
 			e.printStackTrace();
 		} catch (Exception e) {
 			System.out.println("[ERROR]" + e.getMessage());

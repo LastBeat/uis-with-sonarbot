@@ -23,7 +23,7 @@ public class BillPrint extends JPanel {
 	public static JTextField tfName;
 	private JTable tbSearch;
 
-	private String[] Header = {"¾ÆÀÌµğ", "ÀÌ¸§", "Ã»±¸±İ¾×", "´ã´çÀÚ"};
+	private String[] Header = {"ì•„ì´ë””", "ì´ë¦„", "ì²­êµ¬ê¸ˆì•¡", "ë‹´ë‹¹ì"};
 	private DefaultTableModel model = new DefaultTableModel(null, Header){
 		public boolean isCellEditable(int rowIndex, int mColIndex) {
 			return false;
@@ -44,19 +44,19 @@ public class BillPrint extends JPanel {
 		setBackground(Color.WHITE);
 		setLayout(null);
 
-		JLabel label = new JLabel("Ã»±¸¼­ ¹ß±Ş");
+		JLabel label = new JLabel("ì²­êµ¬ì„œ ë°œê¸‰");
 		label.setBounds(17, 15, 157, 21);
-		label.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 18));
+		label.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 18));
 		add(label);
 
-		JLabel lbPerm = new JLabel("Á÷±Ş");
-		lbPerm.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		JLabel lbPerm = new JLabel("ì§ê¸‰");
+		lbPerm.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 15));
 		lbPerm.setBounds(28, 40, 40, 21);
 		add(lbPerm);
 
-		JLabel lbName = new JLabel("ÀÌ¸§");
+		JLabel lbName = new JLabel("ì´ë¦„");
 		lbName.setBounds(177, 40, 40, 21);
-		lbName.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		lbName.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 15));
 		add(lbName);
 
 		tfName = new JTextField();
@@ -75,39 +75,39 @@ public class BillPrint extends JPanel {
 		add(scroll);
 
 		JComboBox cbPerm = new JComboBox();
-		cbPerm.addItem("ÇĞ»ı");
+		cbPerm.addItem("í•™ìƒ");
 		cbPerm.setSelectedItem(null);
 		cbPerm.setBounds(64, 40, 99, 24);
 		add(cbPerm);
 
-		JButton btnPrint = new JButton("¹ß±Ş");
+		JButton btnPrint = new JButton("ë°œê¸‰");
 		btnPrint.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Ã»±¸¼­°¡ ¹ß±ŞµÇ¾ú½À´Ï´Ù.");
+				JOptionPane.showMessageDialog(null, "ì²­êµ¬ì„œê°€ ë°œê¸‰ë˜ì—ˆìŠµë‹ˆë‹¤.");
 			}
 		});
 
-		JButton btnSearch = new JButton("°Ë»ö");
+		JButton btnSearch = new JButton("ê²€ìƒ‰");
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Load();
 			}
 		});
-		btnSearch.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		btnSearch.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 15));
 		btnSearch.setBounds(329, 37, 71, 27);
 		add(btnSearch);
-		btnPrint.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		btnPrint.setFont(new Font("ë§‘ì€ ê³ ë”•", Font.BOLD, 15));
 		btnPrint.setBounds(153, 237, 105, 27);
 		add(btnPrint);
 	}
 
-	// µ¥ÀÌÅÍº£ÀÌ½ºÀÇ Á¤º¸¸¦ °¡Á®¿À±â À§ÇÑ ¸Ş¼Òµå(Load)
+	// ë°ì´í„°ë² ì´ìŠ¤ì˜ ì •ë³´ë¥¼ ê°€ì ¸ì˜¤ê¸° ìœ„í•œ ë©”ì†Œë“œ(Load)
 	public void Load() {
 		STFDAO dao = new STFDAO();
 		ArrayList<STFGS> members = new ArrayList<STFGS>();
 		Object record[] = new Object[4];
 
-		model.setNumRows(0);	// °Ë»ö ½Ã¸¶´Ù ±âÁ¸ Å×ÀÌºí¿¡ Ãâ·ÂµÈ ³»¿ëÀ» »èÁ¦
+		model.setNumRows(0);	// ê²€ìƒ‰ ì‹œë§ˆë‹¤ ê¸°ì¡´ í…Œì´ë¸”ì— ì¶œë ¥ëœ ë‚´ìš©ì„ ì‚­ì œ
 
 		try {				
 			members = dao.resultBillSearch();
@@ -122,7 +122,7 @@ public class BillPrint extends JPanel {
 			}
 
 		} catch(SQLException e) {
-			System.out.println("[ERROR]"+e.getMessage()); // ¿¹¿Ü ¸Ş½ÃÁö (console) ÀÎ¼â
+			System.out.println("[ERROR]"+e.getMessage()); // ì˜ˆì™¸ ë©”ì‹œì§€ (console) ì¸ì‡„
 			e.printStackTrace();
 		} catch(Exception e) {
 			System.out.println("[ERROR]"+e.getMessage());

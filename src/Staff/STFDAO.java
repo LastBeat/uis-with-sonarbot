@@ -11,11 +11,11 @@ import Common.ReadProps;
 import Login.LoginGUI;
 
 // Staff - STFDAO.java
-// »ç¿ëÀÚ Á¤º¸Ã¢¿¡ ÇÊ¿äÇÑ Á¤º¸(ÇĞ¹ø(±³¼ö¹øÈ£), ÀÌ¸§, ÇĞ°ú, ÁÖ¹Îµî·Ï¹øÈ£)¸¦ DB¿¡¼­ °¡Á®¿À¸ç,
-//ÇÁ·Î±×·¥ ³»¿¡¼­ »ç¿ëÇÒ ¼ö ÀÖ´Â Çü½ÄÀ¸·Î ÀúÀå
+// ì‚¬ìš©ì ì •ë³´ì°½ì— í•„ìš”í•œ ì •ë³´(í•™ë²ˆ(êµìˆ˜ë²ˆí˜¸), ì´ë¦„, í•™ê³¼, ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸)ë¥¼ DBì—ì„œ ê°€ì ¸ì˜¤ë©°,
+//í”„ë¡œê·¸ë¨ ë‚´ì—ì„œ ì‚¬ìš©í•  ìˆ˜ ìˆëŠ” í˜•ì‹ìœ¼ë¡œ ì €ì¥
 
 public class STFDAO {
-	// DB ¿¬°áÀ» À§ÇÑ DBÁ¤º¸ ºÒ·¯¿À±â
+	// DB ì—°ê²°ì„ ìœ„í•œ DBì •ë³´ ë¶ˆëŸ¬ì˜¤ê¸°
 	ReadProps pr = new ReadProps();
 
 	public String oracleDriver=pr.getDBName();
@@ -23,20 +23,20 @@ public class STFDAO {
 	public String oracleId=pr.getDBId();
 	public String oraclePw=pr.getDBPw();
 
-	// JDBC ¿¬°á ¸Ş¼Òµå
+	// JDBC ì—°ê²° ë©”ì†Œë“œ
 	public Connection getConnection() throws ClassNotFoundException, Exception{
-		Connection con = null; // JDBC¿ÍÀÇ ¿¬°á °´Ã¼ ÃÊ±âÈ­
+		Connection con = null; // JDBCì™€ì˜ ì—°ê²° ê°ì²´ ì´ˆê¸°í™”
 
 		try{
-			Class.forName(oracleDriver); // JDBC Driver °Ë»ö
+			Class.forName(oracleDriver); // JDBC Driver ê²€ìƒ‰
 			con = DriverManager.getConnection(oracleURL,oracleId,oraclePw); // JDBC URL
 
-			// JDBC driver ´©¶ô ½Ã ¿¹¿ÜÃ³¸®
+			// JDBC driver ëˆ„ë½ ì‹œ ì˜ˆì™¸ì²˜ë¦¬
 		} catch(ClassNotFoundException e){
 			System.out.println("[ERROR]"+e.getMessage());
 			e.printStackTrace();
 
-			// ¸ğµç ¿¹¿Ü»óÈ² Ã³¸®
+			// ëª¨ë“  ì˜ˆì™¸ìƒí™© ì²˜ë¦¬
 		} catch(Exception e){
 			System.out.println("[ERROR]"+e.getMessage());
 			e.printStackTrace();
@@ -45,7 +45,7 @@ public class STFDAO {
 		return con;
 	}
 
-	// »ç¿ëÀÚ Á¤º¸¸¦ °¡Á®¿À´Â ±â´É ¸Ş¼Òµå
+	// ì‚¬ìš©ì ì •ë³´ë¥¼ ê°€ì ¸ì˜¤ëŠ” ê¸°ëŠ¥ ë©”ì†Œë“œ
 	public ArrayList<STFGS> getMembers() throws SQLException, Exception{
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -62,9 +62,9 @@ public class STFDAO {
 			rs = pstmt.executeQuery();
 
 			while(rs.next()){
-				member = new STFGS(); // ÀÓ½Ã »ı¼º
-				member.setID(rs.getString("ID")); // id ÇÊµå°ªÀ» °¡Á®¿È
-				member.setName(rs.getString("NAME")); // name ÇÊµå°ªÀ» °¡Á®¿È
+				member = new STFGS(); // ì„ì‹œ ìƒì„±
+				member.setID(rs.getString("ID")); // id í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setName(rs.getString("NAME")); // name í•„ë“œê°’ì„ ê°€ì ¸ì˜´
 
 				members.add(member);
 			}
@@ -85,7 +85,7 @@ public class STFDAO {
 		return members;
 	}
 
-	// »ç¿ëÀÚ µî·ÏÀ» À§ÇÑ ±â´É ¸Ş¼Òµå
+	// ì‚¬ìš©ì ë“±ë¡ì„ ìœ„í•œ ê¸°ëŠ¥ ë©”ì†Œë“œ
 	public void setUser() throws SQLException, Exception{
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -95,11 +95,11 @@ public class STFDAO {
 
 		con = getConnection();
 
-		if(RegUser.Perm.equals("ÇĞ»ı"))
+		if(RegUser.Perm.equals("í•™ìƒ"))
 			sql = "INSERT INTO STUDENT VALUES ('" + RegUser.UserID.getText() + "', '"
 					+ RegUser.UserRRN.getText().substring(6, 13) + "', '" + RegUser.UserName.getText()
 					+ "', '" + RegUser.UserRRN.getText() + "', '" + RegUser.saveDeptNum + "')";
-		else if(RegUser.Perm.equals("±³¼ö"))
+		else if(RegUser.Perm.equals("êµìˆ˜"))
 			sql = "INSERT INTO PROFESSOR VALUES ('" + RegUser.UserID.getText() + "', '"
 					+ RegUser.UserRRN.getText().substring(6, 13) + "', '" + RegUser.UserName.getText()
 					+ "', '" + RegUser.UserRRN.getText() + "', '" + RegUser.saveDeptNum + "')";
@@ -121,7 +121,7 @@ public class STFDAO {
 		}
 	}
 
-	// »ç¿ëÀÚ °Ë»ö°á°ú¸¦ °¡Á®¿À´Â ±â´É ¸Ş¼Òµå
+	// ì‚¬ìš©ì ê²€ìƒ‰ê²°ê³¼ë¥¼ ê°€ì ¸ì˜¤ëŠ” ê¸°ëŠ¥ ë©”ì†Œë“œ
 	public ArrayList<STFGS> resultSearch() throws SQLException, Exception{
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -133,9 +133,9 @@ public class STFDAO {
 
 		con = getConnection();
 
-		if(SearchUser.Perm.equals("ÇĞ»ı"))
+		if(SearchUser.Perm.equals("í•™ìƒ"))
 			sql = "SELECT STUDENT.ID, STUDENT.NAME, DEPT.DEPT_NAME, RRN FROM STUDENT, DEPT WHERE DEPT.ID=STUDENT.DEPT_ID AND STUDENT.NAME LIKE '" + SearchUser.tfName.getText() + "' ORDER BY ID ASC";
-		else if(SearchUser.Perm.equals("±³¼ö"))
+		else if(SearchUser.Perm.equals("êµìˆ˜"))
 			sql = "SELECT PROFESSOR.ID, PROFESSOR.NAME, DEPT.DEPT_NAME, RRN FROM PROFESSOR, DEPT WHERE DEPT.ID=PROFESSOR.DEPT_ID AND PROFESSOR.NAME LIKE '" + SearchUser.tfName.getText() + "' ORDER BY ID ASC";
 
 		try {
@@ -143,11 +143,11 @@ public class STFDAO {
 			rs = pstmt.executeQuery();
 
 			while(rs.next()){
-				member = new STFGS(); // ÀÓ½Ã »ı¼º
-				member.setID(rs.getString("ID")); // id ÇÊµå°ªÀ» °¡Á®¿È
-				member.setName(rs.getString("NAME")); // name ÇÊµå°ªÀ» °¡Á®¿È
-				member.setDept(rs.getString("DEPT_NAME")); // DEPT ÇÊµå°ªÀ» °¡Á®¿È
-				member.setRRN(rs.getString("RRN")); // RRN ¾ÕÀÚ¸® ÇÊµå°ªÀ» °¡Á®¿È
+				member = new STFGS(); // ì„ì‹œ ìƒì„±
+				member.setID(rs.getString("ID")); // id í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setName(rs.getString("NAME")); // name í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setDept(rs.getString("DEPT_NAME")); // DEPT í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setRRN(rs.getString("RRN")); // RRN ì•ìë¦¬ í•„ë“œê°’ì„ ê°€ì ¸ì˜´
 
 				members.add(member);
 			}
@@ -168,7 +168,7 @@ public class STFDAO {
 		return members;
 	}
 
-	// »ç¿ëÀÚ »èÁ¦¸¦ À§ÇÑ ±â´É ¸Ş¼Òµå
+	// ì‚¬ìš©ì ì‚­ì œë¥¼ ìœ„í•œ ê¸°ëŠ¥ ë©”ì†Œë“œ
 	public void DelUser() throws SQLException, Exception{
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -178,9 +178,9 @@ public class STFDAO {
 
 		con = getConnection();
 
-		if(SearchUser.Perm.equals("ÇĞ»ı"))
+		if(SearchUser.Perm.equals("í•™ìƒ"))
 			sql = "DELETE FROM STUDENT WHERE NAME = '" +SearchUser.tfName.getText()+ "'";
-		else if(SearchUser.Perm.equals("±³¼ö"))
+		else if(SearchUser.Perm.equals("êµìˆ˜"))
 			sql = "DELETE FROM PROFESSOR WHERE NAME = '" +SearchUser.tfName.getText()+ "'";
 
 		try {
@@ -200,7 +200,7 @@ public class STFDAO {
 		}
 	}
 
-	// »ç¿ëÀÚ ¼öÁ¤À» À§ÇÑ ±â´É ¸Ş¼Òµå
+	// ì‚¬ìš©ì ìˆ˜ì •ì„ ìœ„í•œ ê¸°ëŠ¥ ë©”ì†Œë“œ
 	public void EditUser() throws SQLException, Exception{
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -210,10 +210,10 @@ public class STFDAO {
 
 		con = getConnection();
 
-		if(SearchUser.Perm.equals("ÇĞ»ı"))
+		if(SearchUser.Perm.equals("í•™ìƒ"))
 			sql = "UPDATE STUDENT SET ID='" + SearchUser.ID + "', NAME='"+SearchUser.Name+"', DEPT_ID='" + SearchUser.Dept
 			+"', RRN='"+SearchUser.RRN+"' WHERE NAME = '" +SearchUser.tfName.getText()+ "'";
-		else if(SearchUser.Perm.equals("±³¼ö"))
+		else if(SearchUser.Perm.equals("êµìˆ˜"))
 			sql = "UPDATE PROFESSOR SET ID='" + SearchUser.ID + "', NAME='"+SearchUser.Name+"', DEPT_ID='" + SearchUser.Dept
 			+"', RRN='"+SearchUser.RRN+"' WHERE NAME = '" +SearchUser.tfName.getText()+ "'";
 
@@ -234,7 +234,7 @@ public class STFDAO {
 		}
 	}
 
-	//µî·Ï
+	//ë“±ë¡
 	public void setClass() throws SQLException, Exception{
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -266,7 +266,7 @@ public class STFDAO {
 		}
 	}
 
-	//°­ÁÂ¸í °Ë»ö°á°ú¸¦ °¡Á®¿À´Â ±â´É ¸Ş¼Òµå
+	//ê°•ì¢Œëª… ê²€ìƒ‰ê²°ê³¼ë¥¼ ê°€ì ¸ì˜¤ëŠ” ê¸°ëŠ¥ ë©”ì†Œë“œ
 	public ArrayList<STFGS> Search() throws SQLException, Exception{
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -287,14 +287,14 @@ public class STFDAO {
 			rs = pstmt.executeQuery();
 
 			while(rs.next()){
-				member = new STFGS(); // ÀÓ½Ã »ı¼º
-				member.setClassNumber(rs.getString("ID")); // ÇÊµå°ªÀ» °¡Á®¿È
-				member.setClassName(rs.getString("NAME")); // name ÇÊµå°ªÀ» °¡Á®¿È
-				member.setProfessor(rs.getString("PROF_ID")); // RRN ¾ÕÀÚ¸® ÇÊµå°ªÀ» °¡Á®¿È
-				member.setScore(rs.getString("CREDIT")); // RRN ¾ÕÀÚ¸® ÇÊµå°ªÀ» °¡Á®¿È
-				member.setCount(rs.getString("MAX")); // DEPT ÇÊµå°ªÀ» °¡Á®¿È
-				member.setExp(rs.getString("INTRO")); // RRN ¾ÕÀÚ¸® ÇÊµå°ªÀ» °¡Á®¿È
-				member.setSTATE(rs.getString("STATE")); //STATE ÇÊµå°ªÀ» °¡Á®¿È
+				member = new STFGS(); // ì„ì‹œ ìƒì„±
+				member.setClassNumber(rs.getString("ID")); // í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setClassName(rs.getString("NAME")); // name í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setProfessor(rs.getString("PROF_ID")); // RRN ì•ìë¦¬ í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setScore(rs.getString("CREDIT")); // RRN ì•ìë¦¬ í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setCount(rs.getString("MAX")); // DEPT í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setExp(rs.getString("INTRO")); // RRN ì•ìë¦¬ í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setSTATE(rs.getString("STATE")); //STATE í•„ë“œê°’ì„ ê°€ì ¸ì˜´
 
 				members.add(member);
 			}
@@ -315,7 +315,7 @@ public class STFDAO {
 		return members;
 	}
 
-	// °­ÀÇ°³¼³À» À§ÇÑ ±â´É ¸Ş¼Òµå
+	// ê°•ì˜ê°œì„¤ì„ ìœ„í•œ ê¸°ëŠ¥ ë©”ì†Œë“œ
 	public void OpenClass() throws SQLException, Exception{
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -344,7 +344,7 @@ public class STFDAO {
 		}
 	}
 
-	// Ã»±¸¼­ ¹ß±Ş ´ë»ó Á¶È¸°á°ú¸¦ °¡Á®¿À´Â ±â´É ¸Ş¼Òµå
+	// ì²­êµ¬ì„œ ë°œê¸‰ ëŒ€ìƒ ì¡°íšŒê²°ê³¼ë¥¼ ê°€ì ¸ì˜¤ëŠ” ê¸°ëŠ¥ ë©”ì†Œë“œ
 	public ArrayList<STFGS> resultBillSearch() throws SQLException, Exception{
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -364,11 +364,11 @@ public class STFDAO {
 			rs = pstmt.executeQuery();
 
 			while(rs.next()){
-				member = new STFGS(); // ÀÓ½Ã »ı¼º
-				member.setID(rs.getString("ID")); // id ÇÊµå°ªÀ» °¡Á®¿È
-				member.setName(rs.getString("NAME")); // name ÇÊµå°ªÀ» °¡Á®¿È
-				member.setDept(Bill); // DEPT ÇÊµå°ªÀ» °¡Á®¿È
-				member.setRRN(LoginGUI.PassID); // RRN ¾ÕÀÚ¸® ÇÊµå°ªÀ» °¡Á®¿È
+				member = new STFGS(); // ì„ì‹œ ìƒì„±
+				member.setID(rs.getString("ID")); // id í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setName(rs.getString("NAME")); // name í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setDept(Bill); // DEPT í•„ë“œê°’ì„ ê°€ì ¸ì˜´
+				member.setRRN(LoginGUI.PassID); // RRN ì•ìë¦¬ í•„ë“œê°’ì„ ê°€ì ¸ì˜´
 
 				members.add(member);
 			}
